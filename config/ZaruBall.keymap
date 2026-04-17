@@ -14,7 +14,8 @@
 #define LOWER    2
 #define RAISE    3
 #define ADJUST   4
-#define SCROLL   2
+#define SCROLL   5
+#define IPAD     6
 
 // OS設定を日本語キーボードのまま使用するための変換定義
 
@@ -150,18 +151,42 @@
 
         // S + D = Escape
         combo_esc {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
             key-positions = <34 35>;
             bindings = <&kp ESC>;
-            layers = <BASE>;
+            layers = <0 6>;
         };
 
         // K + L = Backspace
         combo_bspc {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
             key-positions = <46 47>;
             bindings = <&kp BSPC>;
-            layers = <BASE>;
+            layers = <0 6>;
+        };
+
+        // H + J = Enter
+        combo_enter {
+            timeout-ms = <100>;
+            key-positions = <44 45>;
+            bindings = <&kp ENTER>;
+            layers = <0 6>;
+        };
+
+        // N + M = , (カンマ) 
+        combo_comma {
+            timeout-ms = <100>;
+            key-positions = <62 63>;
+            bindings = <&kp COMMA>;
+            layers = <0 6>;
+        };
+
+        // M + LEFT_ARROW(Mの右) = . (ドット) 
+        combo_dot {
+            timeout-ms = <100>;
+            key-positions = <63 64>;
+            bindings = <&kp DOT>;
+            layers = <0 6>;
         };
     };
 };
@@ -174,11 +199,11 @@
             display-name = "Base";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&kp GRAVE  &kp N1      &kp N2  &kp N3    &kp N4        &kp N5                            &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                   &kp NUMBER_6  &kp N7  &kp N8          &kp N9          &kp N0        &kp MINUS
-&kp TAB    &kp Q       &kp W   &kp E     &kp R         &kp T                             &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                 &kp Y         &kp U   &kp I           &kp O           &kp P         &kp JP_LBRACKET
-&kp CAPS   &kp A       &kp S   &kp D     &kp F         &kp G               &kp JP_AT     &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp MINUS    &kp H         &kp J   &kp K           &kp L           &kp JP_COLON  &kp JP_RBRACKET
-&kp LSHFT  &kp Z       &kp X   &kp C     &kp V         &kp B               &kp DOT       &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp COMMA    &kp N         &kp M   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &lt SCROLL RIGHT_ARROW
-&kp LCTRL  &kp C_MUTE          &kp LWIN  &kp LEFT_ALT  &SandS LSHFT SPACE  &mo SCROLL                                                            &lt 3 SPACE  &kp ENTER                                                           &kp GRAVE
+&kp JP_HANZEN  &kp N1      &kp N2  &kp N3    &kp N4        &kp N5                            &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                   &kp NUMBER_6  &kp N7  &kp N8          &kp N9          &kp N0        &kp MINUS
+&kp TAB        &kp Q       &kp W   &kp E     &kp R         &kp T                             &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                 &kp Y         &kp U   &kp I           &kp O           &kp P         &kp JP_LBRACKET
+&kp CAPS       &kp A       &kp S   &kp D     &kp F         &kp G               &kp JP_AT     &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp MINUS    &kp H         &kp J   &kp K           &kp L           &kp JP_COLON  &kp JP_RBRACKET
+&kp LSHFT      &kp Z       &kp X   &kp C     &kp V         &kp B               &kp DOT       &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp COMMA    &kp N         &kp M   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &lt SCROLL RIGHT_ARROW
+&kp LCTRL      &kp C_MUTE          &kp LWIN  &kp LEFT_ALT  &SandS LSHFT SPACE  &mo SCROLL                                                            &lt 3 SPACE  &kp ENTER                                                           &kp GRAVE
             >;
         };
 
@@ -190,7 +215,7 @@
 &to_layer_0 TAB     &to_layer_0 Q   &to_layer_0 W   &to_layer_0 E   &to_layer_0 R   &to_layer_0 T                      &trans  &trans  &trans  &trans                     &to_layer_0 Y   &to_layer_0 U   &to_layer_0 I   &to_layer_0 O   &to_layer_0 P   &to_layer_0 EQUAL
 &to_layer_0 CAPS    &to_layer_0 A   &mkp RCLK       &mkp MCLK       &mkp LCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp RCLK       &mkp MCLK       &mkp MB4        &mkp MB5
 &to_layer_0 LSHIFT  &to_layer_0 Z   &to_layer_0 X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp LCLK       &mkp LCLK       &mkp RCLK       &mkp MCLK       &lt SCROLL BACKSLASH
-&trans              &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                          &trans
+&kp LCTRL           &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                          &trans
             >;
         };
 
@@ -222,13 +247,26 @@
             display-name = "Adjust";
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
             bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4            &trans  &trans  &trans  &trans              &bt BT_CLR_ALL  &none  &none  &none  &none  &none
-&trans  &none         &none         &none         &none         &none                   &trans  &trans  &trans  &trans              &bt BT_CLR      &none  &none  &none  &none  &none
-&trans  &none         &none         &none         &none         &none         &none     &trans  &trans  &trans  &trans    &ind_bat  &out OUT_TOG    &none  &none  &none  &none  &none
-&trans  &none         &none         &none         &none         &none         &none     &trans  &trans  &trans  &trans    &ind_con  &studio_unlock  &none  &none  &none  &none  &none
-&trans  &kp C_MUTE                  &trans        &trans        &trans        &trans                                      &trans    &kp DEL                                     &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4            &trans  &trans  &trans  &trans              &bt BT_CLR_ALL  &none  &none  &none  &none   &none
+&trans  &none         &none         &none         &none         &none                   &trans  &trans  &trans  &trans              &bt BT_CLR      &none  &none  &none  &none   &none
+&trans  &none         &none         &none         &none         &none         &none     &trans  &trans  &trans  &trans    &ind_bat  &out OUT_TOG    &none  &none  &none  &tog 6  &none
+&trans  &none         &none         &none         &none         &none         &none     &trans  &trans  &trans  &trans    &ind_con  &studio_unlock  &none  &none  &none  &none   &none
+&trans  &kp C_MUTE                  &trans        &trans        &trans        &trans                                      &trans    &kp DEL                                      &none
             >;
         };
+
+ // keymapノード内に追加
+        ipad_layer {
+            display-name = "iPad";
+            sensor-bindings = <&scroll_down_up>;
+            bindings = <
+&kp JP_HANZEN  &kp N1      &kp N2  &kp N3    &kp N4        &kp N5                               &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                   &kp NUMBER_6  &kp N7  &kp N8          &kp N9          &kp N0        &kp MINUS
+&kp TAB        &kp Q       &kp W   &kp E     &kp R         &kp T                                &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                 &kp Y         &kp U   &kp I           &kp O           &kp P         &kp JP_LBRACKET
+&kp CAPS       &kp A       &kp S   &kp D     &kp F         &kp G                &kp JP_AT       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp MINUS    &kp H         &kp J   &kp K           &kp L           &kp JP_COLON  &kp JP_RBRACKET
+&kp LSHFT      &kp Z       &kp X   &kp C     &kp V         &kp B                &kp DOT         &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp COMMA    &kp N         &kp M   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &lt SCROLL RIGHT_ARROW
+&kp LCTRL      &kp C_MUTE          &kp LCMD  &kp LALT      &SandS LSHFT SPACE   &mo SCROLL                                                              &lt 3 SPACE  &kp ENTER                                                           &tog 6
+            >;
+        };      
 
         // Extra layer can be added in ZMK STUDIO
 
