@@ -150,7 +150,6 @@
         compatible = "zmk,combos";
 
         // S + D = Escape
-<<<<<<< HEAD
         combo_hyphen {
             timeout-ms = <100>;
             key-positions = <28 29>;
@@ -159,9 +158,6 @@
         };
 
         // S + D = Escape
-=======
-
->>>>>>> e45c90b1dc5cc85a62ec10e2a068fe1815a1126f
         combo_esc {
             timeout-ms = <100>;
             key-positions = <34 35>;
