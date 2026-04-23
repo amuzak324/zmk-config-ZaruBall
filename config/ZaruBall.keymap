@@ -150,6 +150,14 @@
         compatible = "zmk,combos";
 
         // S + D = Escape
+        combo_hyphen {
+            timeout-ms = <100>;
+            key-positions = <28 29>;
+            bindings = <&kp MINUS>;
+            layers = <0 6>;
+        };
+
+        // S + D = Escape
         combo_esc {
             timeout-ms = <100>;
             key-positions = <34 35>;
@@ -162,7 +170,7 @@
             timeout-ms = <100>;
             key-positions = <46 47>;
             bindings = <&kp BSPC>;
-            layers = <0 6>;
+            layers = <0 1 6>;
         };
 
         // H + J = Enter
@@ -201,8 +209,8 @@
             bindings = <
 &kp JP_HANZEN  &kp N1      &kp N2  &kp N3    &kp N4        &kp N5                            &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                   &kp NUMBER_6  &kp N7  &kp N8          &kp N9          &kp N0        &kp MINUS
 &kp TAB        &kp Q       &kp W   &kp E     &kp R         &kp T                             &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                 &kp Y         &kp U   &kp I           &kp O           &kp P         &kp JP_LBRACKET
-&kp CAPS       &kp A       &kp S   &kp D     &kp F         &kp G               &kp JP_AT     &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp MINUS    &kp H         &kp J   &kp K           &kp L           &kp JP_COLON  &kp JP_RBRACKET
-&kp LSHFT      &kp Z       &kp X   &kp C     &kp V         &kp B               &kp DOT       &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp COMMA    &kp N         &kp M   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &lt SCROLL RIGHT_ARROW
+&kp CAPS       &kp A       &kp S   &kp D     &kp F         &kp G               &kp JP_AT     &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp MINUS    &kp H         &kp J   &kp K           &kp L           &kp JP_COLON  &lt SCROLL  JP_RBRACKET
+&kp LSHFT      &kp Z       &kp X   &kp C     &kp V         &kp B               &kp DOT       &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp COMMA    &kp N         &kp M   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW
 &kp LCTRL      &kp C_MUTE          &kp LWIN  &kp LEFT_ALT  &SandS LSHFT SPACE  &mo SCROLL                                                            &lt 3 SPACE  &kp ENTER                                                           &kp GRAVE
             >;
         };
@@ -211,10 +219,10 @@
             display-name = "Mouse";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&to_layer_0 ESC     &to_layer_0 N1  &to_layer_0 N2  &to_layer_0 N3  &to_layer_0 N4  &to_layer_0 N5                     &trans  &trans  &trans  &trans                     &to_layer_0 N6  &to_layer_0 N7  &to_layer_0 N8  &to_layer_0 N9  &to_layer_0 N0  &to_layer_0 MINUS
-&to_layer_0 TAB     &to_layer_0 Q   &to_layer_0 W   &to_layer_0 E   &to_layer_0 R   &to_layer_0 T                      &trans  &trans  &trans  &trans                     &to_layer_0 Y   &to_layer_0 U   &to_layer_0 I   &to_layer_0 O   &to_layer_0 P   &to_layer_0 EQUAL
-&to_layer_0 CAPS    &to_layer_0 A   &mkp RCLK       &mkp MCLK       &mkp LCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp RCLK       &mkp MCLK       &mkp MB4        &mkp MB5
-&to_layer_0 LSHIFT  &to_layer_0 Z   &to_layer_0 X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp LCLK       &mkp LCLK       &mkp RCLK       &mkp MCLK       &lt SCROLL BACKSLASH
+&to_layer_0 ESC     &to_layer_0 N1  &to_layer_0 N2  &to_layer_0 N3  &to_layer_0 N4  &to_layer_0 N5                     &trans  &trans  &trans  &trans                     &to_layer_0 N6  &to_layer_0 N7  &to_layer_0 N8    &to_layer_0 N9  &to_layer_0 N0  &to_layer_0 MINUS
+&to_layer_0 TAB     &to_layer_0 Q   &to_layer_0 W   &to_layer_0 E   &to_layer_0 R   &to_layer_0 T                      &trans  &trans  &trans  &trans                     &to_layer_0 Y   &to_layer_0 U   &to_layer_0 I     &to_layer_0 O   &to_layer_0 P   &to_layer_0 EQUAL
+&to_layer_0 CAPS    &to_layer_0 A   &mkp RCLK       &mkp MCLK       &mkp LCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp RCLK         &mkp MCLK       &mkp MB4        &mkp MB5
+&to_layer_0 LSHIFT  &to_layer_0 Z   &to_layer_0 X   &mkp MB4        &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp LCLK       &mkp RIGHT_ARROW  &mkp DOWN_ARROW &mkp UP_ARROW   &lt SCROLL LEFT_ARROW
 &kp LCTRL           &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                          &trans
             >;
         };
@@ -238,8 +246,8 @@
 &trans          &kp F1     &kp F2           &kp F3        &kp F4       &kp F5                     &trans  &trans  &trans  &trans            &kp F6            &kp F7            &kp F8           &kp F9           &kp F10            &kp KP_NUMLOCK
 &trans          &kp F11    &kp F12          &none         &none        &none                      &trans  &trans  &trans  &trans            &kp JP_CARET      &kp JP_BACKQUOTE  &kp JP_LBRACKET  &kp JP_RBRACKET  &kp JP_AT          &none
 &kp LEFT_SHIFT  &kp EXCL   &kp JP_DQUOTE    &kp HASH      &kp DOLLAR   &kp PERCENT  &kp GRAVE     &trans  &trans  &trans  &trans    &none   &kp JP_AMPERSAND  &kp JP_QUOTE      &kp JP_LPAREN    &kp JP_RPAREN    &kp JP_UNDERSCORE  &none
-&kp LCTRL       &kp SLASH  &kp JP_ASTERISK  &kp MINUS     &kp JP_PLUS  &kp QMARK    &none         &trans  &trans  &trans  &trans    &none   &kp JP_PIPE       &kp JP_TILDE      &kp JP_LBRACE    &kp JP_RBRACE    &kp BACKSLASH      &none
-&td0            &none                       &kp LEFT_ALT  &trans       &kp ESC      &kp DELETE                                      &trans  &kp BACKSPACE                                                                            &td1
+&kp LEFT_SHIFT  &kp SLASH  &kp JP_ASTERISK  &kp MINUS     &kp JP_PLUS  &kp QMARK    &none         &trans  &trans  &trans  &trans    &none   &kp JP_PIPE       &kp JP_TILDE      &kp JP_LBRACE    &kp JP_RBRACE    &kp BACKSLASH      &none
+&kp LCTRL       &none                       &kp LEFT_ALT  &trans       &kp ESC      &kp DELETE                                      &trans  &kp BACKSPACE                                                                            &td1
             >;
         };
 
