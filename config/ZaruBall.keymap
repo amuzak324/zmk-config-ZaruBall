@@ -44,8 +44,11 @@
 #define JP_HANZEN       GRAVE             // 半角/全角
 
 // スクロール量の設定
-// #define ZMK_POINTING_DEFAULT_SCRL_VAL 100  // 既にpointing.hで定義済み
+&zip_temp_layer {
+    require-prior-idle-ms = <200>; // キー入力後200msはマウスへの切り替えを無効化
+};
 
+// #define ZMK_POINTING_DEFAULT_SCRL_VAL 100  // 既にpointing.hで定義済み
 &trackball_listener {
     input-processors = <
                          &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)
