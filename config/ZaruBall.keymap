@@ -152,15 +152,6 @@
     combos {
         compatible = "zmk,combos";
 
-        // I + O = MINUS
-
-        combo_hyphen {
-            timeout-ms = <100>;
-            key-positions = <28 29>;
-            bindings = <&kp MINUS>;
-            layers = <0 6>;
-        };
-
         // S + D = Escape
 
         combo_esc {
