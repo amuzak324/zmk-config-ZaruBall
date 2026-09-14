@@ -4,8 +4,4 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    # ZMK本体のバージョンは config/west.yml の revision で決まるため、
-    # ここは「CIの段取り」を選ぶだけ。main を参照して Node 24 対応の
-    # actions (checkout@v7 / cache@v6 / upload-artifact@v7) を使う。
-    # v0.3 タグ側は actions が v4 のままで Node 20 非推奨の警告が出る。
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    uses: ./.github/workflows/build-user-config.yml
