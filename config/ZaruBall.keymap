@@ -83,7 +83,9 @@
         scroll_down_up: behavior_sensor_rotate_mouse_wheel_down_up {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            // At 100 units/s, the 16ms mouse tick emits at least one wheel unit.
+            // Default SCRL_DOWN/UP use 10 units/s: a 20ms tap is rounded to zero.
+            bindings = <&msc MOVE_Y(-100)>, <&msc MOVE_Y(100)>;
 
             tap-ms = <20>; // スクロールのタップ時間
         };
